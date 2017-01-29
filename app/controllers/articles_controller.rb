@@ -8,4 +8,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Article.search(params[:query], match: :word_start, limit: 10).map do |book|
+      { title: book.title, value: book.id }
+    end
+  end
 end

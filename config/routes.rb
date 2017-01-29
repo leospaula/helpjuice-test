@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles, only: [:index]
+  resources :articles do
+    collection do
+      get :autocomplete
+    end
+  end
 end
