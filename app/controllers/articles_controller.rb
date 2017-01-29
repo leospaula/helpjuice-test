@@ -2,10 +2,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+
+    render json: @articles, each_serializer: ArticlesSerializer
   end
 
-  private
-    def article_params
-      params.fetch(:article, {})
-    end
 end
