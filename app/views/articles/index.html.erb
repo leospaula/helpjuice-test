@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<div class='articles-search'>
+  <%= form_tag articles_path, method: :get do %>
+  <div class='form-group'>
+    <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "article_search" %>
+    <%= submit_tag 'Search' %>    
+  </div>
+  <% end %> 
+</div>
+    
 <h1>Articles</h1>
 
 <table>
   <thead>
     <tr>
-      <th colspan="3">Title</th>
-      <th colspan="3">Body</th>
+      <th>Title</th>
+      <th>Body</th>
     </tr>
   </thead>
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr><%= article.title %></tr>
-      <tr><%= article.body %></tr>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.body %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

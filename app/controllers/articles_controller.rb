@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
-
-    render json: @articles, each_serializer: ArticlesSerializer
+    @articles = if params[:query].present?
+      Article.search(params[:query])
+    else
+      Article.all
+    end
   end
 
 end
