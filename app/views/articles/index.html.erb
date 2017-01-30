@@ -40,9 +40,8 @@
 </div>
 
   <%= javascript_tag do %>
-    
 
-    $(document).on('turbolink:load', function () {
+    function ready() {
       var engine = new Bloodhound({
           datumTokenizer: function(d) {
               console.log(d);
@@ -66,5 +65,9 @@
           displayKey: 'title',
           source: engine.ttAdapter()
       });
-    });
+
+    }
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
   <% end %>
