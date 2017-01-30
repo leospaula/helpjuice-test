@@ -34,5 +34,6 @@ end
 
 gem 'searchkick'
 gem 'twitter-typeahead-rails'
+gem 'elasticsearch', '>= 1.0.15'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
