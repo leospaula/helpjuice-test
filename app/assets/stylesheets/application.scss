@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  */
+ @import "tether";
  @import "bootstrap";
+ @import "typeahead";
  @import "articles";
  @import "scaffolds";
- @import "typeahead";

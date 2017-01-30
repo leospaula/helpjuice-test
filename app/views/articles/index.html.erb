@@ -4,7 +4,7 @@
     <div id="custom-search-input">
       <%= form_tag articles_path, method: :get do %>
       <div class='form-group'>
-        <%= text_field_tag :query, params[:query], placeholder: "Search Article", class: 'search-query form-control typeahead', id: "article_search" %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search Article", autocomplete: "off", class: 'search-query form-control typeahead', id: "article_search" %>
         <span class="form-group-btn">
           <%= button_tag(type: 'submit', class: "btn btn-danger") do %>
             <span class="glyphicon glyphicon-search"></span> 
@@ -39,32 +39,3 @@
   </div>
 </div>
 
-  <%= javascript_tag do %>
-
-    $(document).on('ready page:load', function() {
-      var engine = new Bloodhound({
-          datumTokenizer: function(d) {
-              console.log(d);
-              return Bloodhound.tokenizers.whitespace(d.title);
-          },
-          queryTokenizer: Bloodhound.tokenizers.whitespace,
-          remote: {
-              url: '<%= root_url %>articles/autocomplete?query=%QUERY',
-              wildcard: '%QUERY'
-          }
-      });
-
-      var promise = engine.initialize();
-
-      promise
-          .done(function() { console.log('success!'); })
-          .fail(function() { console.log('err!'); });
-
-      $('.typeahead').typeahead(null, {
-          name: 'engine',
-          displayKey: 'title',
-          source: engine.ttAdapter()
-      });
-
-    });
-  <% end %>
