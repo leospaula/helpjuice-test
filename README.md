@@ -1,24 +1,41 @@
-# README
+# HelpJuice Article Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Visit the project
+Link: https://shielded-dusk-79049.herokuapp.com/
 
-Things you may want to cover:
+### Features
 
-* Ruby version
+* Search Articles using Elastic Search
+* Autocomplete
+* Save searches
 
-* System dependencies
+### Tools
 
-* Configuration
+* Rails 5
+* PostgreSQL
+* JQuery
+* Rspec
+* Puma
 
-* Database creation
+# Development
+ 
+### Configurations
 
-* Database initialization
 
-* How to run the test suite
+```
+$ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rake db:create && rake db:migrate && rake db:seed
+```
 
-* Deployment instructions
+```
+$ rake searchkick:reindex CLASS=Articles
+```
 
-* ...
+Server:
+
+```
+$ rails s
+ ```
