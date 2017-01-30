@@ -1,0 +1,21 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Live Stream", stream_searches_path, class: "active nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Overview", overview_searches_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <ul>
+      <button class="btn btn-default navbar-left">
+        <%= link_to 'Clear Stats', clear_stats_searches_path, data: {confirm: "Are you sure you want to clear all stats?"} %>
+      </button>
+    </ul>
+    </div>
+  </nav>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129113941) do
+ActiveRecord::Schema.define(version: 20170130110721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20170129113941) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "ip_address"
+    t.string   "query"
+    t.string   "normalized_query"
+    t.integer  "results_count"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["created_at"], name: "index_searches_on_created_at", using: :btree
+    t.index ["normalized_query", "created_at"], name: "index_searches_on_normalized_query", using: :btree
   end
 
 end

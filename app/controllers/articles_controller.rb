@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = if params[:query].present?
-      Article.search(params[:query])
+    if params[:query].present?
+      @articles = Article.search params[:query]
+      SearchLogService.new(params[:query], @articles.count, request.remote_ip)
     else
-      Article.all
+      @articles = Article.all
     end
   end
 

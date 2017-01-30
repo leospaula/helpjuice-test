@@ -1,0 +1,22 @@
+<%= render 'layouts/search_header' %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="text-center"> Overview</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Top Searches</th>
+          <th class="num">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @top_searches.each do |row| %>
+          <tr>
+            <td><%= row["normalized_query"] %></td>
+            <td class="num"><%= row["searches_count"] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

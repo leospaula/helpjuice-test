@@ -1,0 +1,17 @@
+<%= render 'layouts/search_header' %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+		<h1 class="text-center">Live Stream</h1>
+
+		<table id="stream" class="table table-bordered"></table>
+	</div>
+</div>
+<script>
+  function fetchRecentSearches() {
+    $("#stream").load("<%= recent_searches_path %>");
+    setTimeout(fetchRecentSearches, 5 * 1000);
+  }
+  $( function() {
+    fetchRecentSearches();
+  });
+</script>

@@ -1,0 +1,17 @@
+<% @searches.each do |search| %>
+  <tr>
+    <td style="width: 15%;">
+      <%= link_to "Overview", overview_searches_path, class: "type-link" %>
+    </td>
+    <td>
+        <%= "#{search.query} - #{search.ip_address}" %>
+    </td>
+
+    <td style="width: 35%; color: #5cb85c;">
+    </td>
+    <td style="width: 20%;" class="num">
+      <%= time_ago_in_words search.created_at %> ago
+      <div class="text-muted"><%= pluralize search.results_count, "result" %></div>
+    </td>
+  </tr>
+<% end %>
